@@ -2,6 +2,7 @@
   "name": "money_n_wealth",
   "version": "1.0.0",
   "private": true,
+  "homepage": "https://rautshre.github.io/money_n_wealth",
   "dependencies": {
     "@craco/craco": "^5.9.0",
     "dangerous-html": "0.1.13",
@@ -13,12 +14,15 @@
     "react-helmet": "^6.1.0",
     "react-router-dom": "^5.2.0"
   },
-  "scripts": {
-    "start": "set NODE_OPTIONS=--openssl-legacy-provider && craco start",
-    "build": "set NODE_OPTIONS=--openssl-legacy-provider && craco build",
-    "test": "set NODE_OPTIONS=--openssl-legacy-provider && craco test --env=jsdom",
-    "eject": "craco eject"
-  },
+ 
+    "scripts": {
+  "start": "set NODE_OPTIONS=--openssl-legacy-provider && craco start",
+  "build": "set NODE_OPTIONS=--openssl-legacy-provider && craco build",
+  "test": "set NODE_OPTIONS=--openssl-legacy-provider && craco test --env=jsdom",
+  "eject": "craco eject",
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build"
+},
   "engines": {
     "node": ">=18.x"
   },
@@ -35,6 +39,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "react-scripts": "^3.0.1"
   }
 }
