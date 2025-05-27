@@ -1,0 +1,217 @@
+.navbar-container {
+  width: 100%;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  background-color: var(--dl-color-theme-neutral-light);
+}
+ 
+.navbar-navbar-interactive {
+  width: 100%;
+  display: flex;
+  max-width: var(--dl-layout-size-maxwidth);
+  align-items: center;
+  padding-top: var(--dl-layout-space-twounits);
+  padding-left: var(--dl-layout-space-threeunits);
+  padding-right: var(--dl-layout-space-threeunits);
+  padding-bottom: var(--dl-layout-space-twounits);
+  justify-content: space-between;
+}
+ 
+.navbar-image1 {
+  height: 3rem;
+}
+ 
+.navbar-desktop-menu {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+}
+ 
+.navbar-links1 {
+  gap: var(--dl-layout-space-twounits);
+  flex: 1;
+  display: flex;
+  align-items: center;
+  margin-left: var(--dl-layout-space-twounits);
+  flex-direction: row;
+  justify-content: flex-start;
+}
+ 
+.navbar-buttons1 {
+  gap: var(--dl-layout-space-twounits);
+  display: flex;
+  align-items: center;
+  margin-left: var(--dl-layout-space-twounits);
+}
+ 
+.navbar-action11 {
+  display: flex;
+  flex-direction: row;
+}
+ 
+.navbar-action21 {
+  display: flex;
+  flex-direction: row;
+}
+ 
+.navbar-burger-menu {
+  display: none;
+}
+ 
+.navbar-icon1 {
+  width: var(--dl-layout-size-xsmall);
+  height: var(--dl-layout-size-xsmall);
+}
+ 
+.navbar-mobile-menu {
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100vh;
+  display: none;
+  padding: var(--dl-layout-space-twounits);
+  z-index: 100;
+  position: absolute;
+  flex-direction: column;
+  background-color: var(--dl-color-theme-neutral-light);
+}
+ 
+.navbar-nav {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+ 
+.navbar-top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--dl-layout-space-threeunits);
+  justify-content: space-between;
+}
+ 
+.navbar-logo {
+  height: 3rem;
+}
+ 
+.navbar-close-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ 
+.navbar-icon3 {
+  width: var(--dl-layout-size-xsmall);
+  height: var(--dl-layout-size-xsmall);
+}
+ 
+.navbar-links2 {
+  gap: var(--dl-layout-space-unit);
+  flex: 0 0 auto;
+  display: flex;
+  align-self: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+}
+ 
+.navbar-buttons2 {
+  gap: var(--dl-layout-space-twounits);
+  display: flex;
+  margin-top: var(--dl-layout-space-twounits);
+  align-items: center;
+}
+ 
+@media(max-width: 767px) {
+  .navbar-navbar-interactive {
+    padding-left: var(--dl-layout-space-twounits);
+    padding-right: var(--dl-layout-space-twounits);
+  }
+  .navbar-desktop-menu {
+    display: none;
+  }
+  .navbar-burger-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+ 
+@media(max-width: 479px) {
+  .navbar-navbar-interactive {
+    padding: var(--dl-layout-space-unit);
+  }
+  .navbar-mobile-menu {
+    padding: var(--dl-layout-space-unit);
+  }
+}
+.navbar-dropdown {
+  position: relative;
+  display: inline-block;
+}
+.navbar-dropdown-toggle {
+  cursor: pointer;
+}
+.navbar-dropdown-menu {
+  display: none;
+  position: absolute;
+  background: #fff;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.navbar-dropdown:hover .navbar-dropdown-menu {
+  display: block;
+}
+.navbar-dropdown-item {
+  padding: 12px 16px;
+  display: block;
+  cursor: pointer;
+  color: #333;
+}
+.navbar-dropdown-item:hover {
+  background: #f1f1f1;
+}
+.navbar-toggle-mode-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-btn-bg) 60%, var(--color-accent) 100%);
+  color: var(--color-btn-text);
+  border: none;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  font-size: 1.4rem;
+  box-shadow: 0 2px 8px var(--color-shadow);
+  cursor: pointer;
+  transition: 
+    background 0.25s,
+    box-shadow 0.25s,
+    transform 0.18s;
+  margin-left: 8px;
+  outline: none;
+  position: relative;
+}
+
+.navbar-toggle-mode-btn:hover,
+.navbar-toggle-mode-btn:focus {
+  background: linear-gradient(135deg, var(--color-btn-bg-hover) 60%, var(--color-orange) 100%);
+  box-shadow: 0 4px 16px var(--color-shadow-hover);
+  transform: scale(1.08) rotate(-8deg);
+}
+
+.navbar-toggle-mode-btn .toggle-icon {
+  transition: transform 0.3s;
+}
+
+body.dark-mode .navbar-toggle-mode-btn .toggle-icon {
+  transform: rotate(180deg) scale(1.1);
+}
+
+/* For better alignment in button group */
+.navbar-buttons1 .navbar-toggle-mode-btn,
+.navbar-buttons2 .navbar-toggle-mode-btn {
+  margin-left: 0;
+  margin-right: 0;
+}
