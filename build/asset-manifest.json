@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/money_n_wealth/static/css/main.145d49bc.chunk.css",
+    "main.js": "/money_n_wealth/static/js/main.90189ded.chunk.js",
+    "main.js.map": "/money_n_wealth/static/js/main.90189ded.chunk.js.map",
+    "runtime~main.js": "/money_n_wealth/static/js/runtime~main.bf1205e2.js",
+    "runtime~main.js.map": "/money_n_wealth/static/js/runtime~main.bf1205e2.js.map",
+    "static/js/2.219f2254.chunk.js": "/money_n_wealth/static/js/2.219f2254.chunk.js",
+    "static/js/2.219f2254.chunk.js.map": "/money_n_wealth/static/js/2.219f2254.chunk.js.map",
+    "index.html": "/money_n_wealth/index.html",
+    "precache-manifest.721b378cf0ffee6ca25a56281a092bc8.js": "/money_n_wealth/precache-manifest.721b378cf0ffee6ca25a56281a092bc8.js",
+    "service-worker.js": "/money_n_wealth/service-worker.js",
+    "static/css/main.145d49bc.chunk.css.map": "/money_n_wealth/static/css/main.145d49bc.chunk.css.map"
+  }
+}
