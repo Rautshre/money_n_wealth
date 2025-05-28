@@ -11,19 +11,7 @@ const Navbar = (props) => {
   useEffect(() => {
     const root = document.documentElement
     if (darkMode) {
-      // Dark mode (current)
-      root.style.setProperty('--color-bg', '#111827')
-      root.style.setProperty('--color-title', '#fff')
-      root.style.setProperty('--color-title-light', '#fff')
-      root.style.setProperty('--color-primary', '#1f2937')
-      root.style.setProperty('--color-section-bg', '#1f2937')
-      root.style.setProperty('--color-card-bg', '#222c37')
-      root.style.setProperty('--color-desc', '#e5e7eb')
-      root.style.setProperty('--color-link', '#fff')
-      root.style.setProperty('--color-btn-bg', '#22c55e')
-      root.style.setProperty('--color-btn-bg-hover', '#16a34a')
-    } else {
-      // Light mode
+     // Light mode
       root.style.setProperty('--color-bg', '#fff')
       root.style.setProperty('--color-title', '#1f2937')
       root.style.setProperty('--color-title-light', '#1f2937')
@@ -34,6 +22,19 @@ const Navbar = (props) => {
       root.style.setProperty('--color-link', '#1f2937')
       root.style.setProperty('--color-btn-bg', '#ff8800')
       root.style.setProperty('--color-btn-bg-hover', '#ff9900')
+    } else {
+      
+            // Dark mode (current)
+      root.style.setProperty('--color-bg', '#111827')
+      root.style.setProperty('--color-title', '#fff')
+      root.style.setProperty('--color-title-light', '#fff')
+      root.style.setProperty('--color-primary', '#1f2937')
+      root.style.setProperty('--color-section-bg', '#1f2937')
+      root.style.setProperty('--color-card-bg', '#222c37')
+      root.style.setProperty('--color-desc', '#e5e7eb')
+      root.style.setProperty('--color-link', '#fff')
+      root.style.setProperty('--color-btn-bg', '#22c55e')
+      root.style.setProperty('--color-btn-bg-hover', '#16a34a')
     }
   }, [darkMode])
 
@@ -142,7 +143,7 @@ const Navbar = (props) => {
 
 Navbar.defaultProps = {
   logoSrc:
-    'https://media.licdn.com/dms/image/v2/C510BAQGZB8WnniDNRA/company-logo_200_200/company-logo_200_200/0/1631369598441?e=2147483647&v=beta&t=dJJxLGDb33_pv6cAGRlPRAu7hDY6kJoT9bhF04XwtSM',
+    'https://res.cloudinary.com/dmu276kaq/image/upload/v1748441700/money_n_wealth_mckxrd.png',
   logoAlt: 'Money and Wealth Management',
   home: 'Home',
   tips: 'Blog',

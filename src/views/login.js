@@ -4,13 +4,13 @@ import { initializeApp } from 'firebase/app'
 import './login.css'
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyD5iAR0TGjWhUWhtA5KIchyAN2xkDlIzzk',
-  authDomain: 'moneynwealth-8613e.firebaseapp.com',
-  projectId: 'moneynwealth-8613e',
-  storageBucket: 'moneynwealth-8613e.appspot.com',
-  messagingSenderId: '410260585437',
-  appId: '1:410260585437:web:96b4b40448c61f1c655434',
-  measurementId: 'G-CEKE258GXX',
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
 }
 initializeApp(firebaseConfig)
 

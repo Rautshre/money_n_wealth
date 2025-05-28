@@ -25,63 +25,63 @@
   --dl-layout-space-oneandhalfunits: 24px;
 
   /* Accent and brand colors */
-  --dl-color-theme-accent1: #22c55e;
-  --dl-color-theme-accent2: #16a34a;
-  --dl-color-theme-primary1: #22c55e;
-  --dl-color-theme-primary2: #16a34a;
-  --dl-color-theme-secondary1: #bbf7d0;
-  --dl-color-theme-secondary2: #4ade80;
+  --dl-color-theme-accent1: #3c4469; /* blue-600 */
+  --dl-color-theme-accent2: #3c4469; /* blue-700 */
+  --dl-color-theme-primary1: #3c4469;
+  --dl-color-theme-primary2: #3c4469;
+  --dl-color-theme-secondary1: #dbeafe; /* blue-100 */
+  --dl-color-theme-secondary2: #60a5fa; /* blue-400 */
   --color-orange: #ff8800;
-  --color-positive: #22c55e;
-  --color-negative: #ff6b6b;
+  --color-positive: #3c4469;
+  --color-negative: #ef4444;
 
   /* Light mode defaults */
-  --color-bg: #fff;
-  --color-primary: #1f2937;
-  --color-secondary: #18202a;
-  --color-accent: #22c55e;
-  --color-card-bg: #f9fafb;
-  --color-card-dark-bg: rgba(34,197,94,0.10);
-  --color-card-dark-bg-hover: rgba(34,197,94,0.17);
-  --color-shadow: rgba(34,197,94,0.10);
-  --color-shadow-hover: rgba(34,197,94,0.18);
-  --color-title: #1f2937;
-  --color-title-light: #1f2937;
-  --color-desc: #444;
-  --color-border: #e5e7eb;
-  --color-link: #1f2937;
-  --color-link-hover: #ff8800;
-  --color-btn-bg: #ff8800;
-  --color-btn-bg-hover: #ff9900;
+  --color-bg: #81b0f7; /* bluish white */
+  --color-primary: #1e293b; /* slate-800 */
+  --color-secondary: #334155; /* slate-700 */
+  --color-accent: #2563eb; /* blue-600 */
+  --color-card-bg: #fff;
+  --color-card-dark-bg: #a9c8ec; /* light blue-gray */
+  --color-card-dark-bg-hover: #dbeafe;
+  --color-shadow: rgba(37,99,235,0.10);
+  --color-shadow-hover: rgba(37,99,235,0.18);
+  --color-title: #1e293b;
+  --color-title-light: #1d4ed8;
+  --color-desc: #475569;
+  --color-border: #cbd5e1;
+  --color-link: #2563eb;
+  --color-link-hover: #1d4ed8;
+  --color-btn-bg: #2563eb;
+  --color-btn-bg-hover: #1d4ed8;
   --color-btn-text: #fff;
-  --color-section-bg: #f3f4f6;
-  --dl-color-theme-neutral-dark: #1f2937;
+  --color-section-bg: #e0e7ef;
+  --dl-color-theme-neutral-dark: #1e293b;
   --dl-color-theme-neutral-light: #fff;
 }
 
 /* Dark mode overrides (set dynamically with JS or .dark-mode class on body) */
 body.dark-mode, :root.dark-mode {
-  --color-bg: #111827;
-  --color-primary: #1f2937;
-  --color-secondary: #18202a;
-  --color-accent: #22c55e;
+  --color-bg: #7a93c8;
+  --color-primary: #1e293b;
+  --color-secondary: #334155;
+  --color-accent: #2563eb;
   --color-card-bg: #222c37;
-  --color-card-dark-bg: rgba(34,197,94,0.10);
-  --color-card-dark-bg-hover: rgba(34,197,94,0.17);
-  --color-shadow: rgba(34,197,94,0.10);
-  --color-shadow-hover: rgba(34,197,94,0.18);
+  --color-card-dark-bg: #1e293b;
+  --color-card-dark-bg-hover: #334155;
+  --color-shadow: rgba(37,99,235,0.10);
+  --color-shadow-hover: rgba(37,99,235,0.18);
   --color-title: #fff;
   --color-title-light: #fff;
   --color-desc: #e5e7eb;
-  --color-border: #e5e7eb;
+  --color-border: #334155;
   --color-link: #fff;
-  --color-link-hover: #ff8800;
-  --color-btn-bg: #22c55e;
-  --color-btn-bg-hover: #16a34a;
+  --color-link-hover: #60a5fa;
+  --color-btn-bg: #2563eb;
+  --color-btn-bg-hover: #1d4ed8;
   --color-btn-text: #fff;
-  --color-section-bg: #1f2937;
+  --color-section-bg: #1e293b;
   --dl-color-theme-neutral-dark: #fff;
-  --dl-color-theme-neutral-light: #1f2937;
+  --dl-color-theme-neutral-light: #1e293b;
 }
 
 /* Set body background and text color */

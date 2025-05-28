@@ -12,18 +12,22 @@ import Home from './views/home'
 import Login from './views/login'
 import Blog from './views/blog'
 import NotFound from './views/not-found' // Only default import
+import ChatbotWidget from './components/ChatbotWidget';
 
 const App = () => {
   return (
     <Router>
-      <Switch>
-        <Route component={Home} exact path="/" />
-        <Route component={Login} exact path="/login" />
-        <Route component={Blog} exact path="/blog" />
-        <Route component={NotFound} exact path="/not-found" />
-        <Route component={NotFound} /> {/* Catch-all route */}
-        <Redirect to="/not-found" />   {/* Redirect to valid path */}
-      </Switch>
+      <>
+        <Switch>
+          <Route component={Home} exact path="/" />
+          <Route component={Login} exact path="/login" />
+          <Route component={Blog} exact path="/blog" />
+          <Route component={NotFound} exact path="/not-found" />
+          <Route component={NotFound} /> {/* Catch-all route */}
+          <Redirect to="/not-found" />   {/* Redirect to valid path */}
+        </Switch>
+        <ChatbotWidget />
+      </>
     </Router>
   )
 }
