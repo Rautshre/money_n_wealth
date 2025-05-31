@@ -1,0 +1,274 @@
+.learning-platform-container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 24px;
+  background: var(--color-section-bg);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px var(--color-shadow);
+  animation: fadeIn 1s;
+}
+.learning-platform-title {
+  text-align: center;
+  color: var(--color-accent);
+  margin-bottom: 12px;
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+.learning-platform-desc {
+  text-align: center;
+  margin-bottom: 32px;
+  color: var(--color-desc);
+  font-size: 1.1rem;
+}
+.learning-section {
+  margin-bottom: 40px;
+  animation: cardPopIn 0.7s cubic-bezier(.4,2,.6,1) both;
+  background: var(--color-section-bg);
+  border-radius: 14px;
+  padding: 18px 18px 8px 18px;
+  box-shadow: 0 2px 8px var(--color-shadow);
+}
+.learning-section-title {
+  color: var(--color-title-light);
+  margin-bottom: 18px;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.learning-progress-bar {
+  width: 100%;
+  background: #e0e7ef;
+  border-radius: 8px;
+  height: 22px;
+  margin-bottom: 18px;
+  position: relative;
+  overflow: hidden;
+}
+.learning-progress-bar-inner {
+  background: linear-gradient(90deg, var(--color-accent), var(--color-btn-bg-hover));
+  height: 100%;
+  border-radius: 8px;
+  transition: width 0.5s;
+}
+.learning-progress-label {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  font-size: 1rem;
+  color: #222;
+  font-weight: 600;
+  line-height: 22px;
+}
+.learning-videos, .learning-articles {
+  margin-bottom: 18px;
+}
+.learning-video-list, .learning-article-list {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 24px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scroll-snap-type: x mandatory;
+}
+.learning-video-list::-webkit-scrollbar {
+  height: 8px;
+  background: #e0e7ef;
+}
+.learning-video-list::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 4px;
+}
+.learning-video-card, .learning-article-card {
+  background: var(--color-card-bg);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px var(--color-shadow);
+  padding: 16px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 260px;
+  max-width: 340px;
+  flex: 0 0 320px;
+  transition: box-shadow 0.2s, transform 0.2s;
+  position: relative;
+}
+.learning-video-card.completed, .learning-article-card.completed {
+  border: 2px solid var(--color-accent);
+  background: #e0f2fe;
+  opacity: 0.85;
+}
+.learning-video-card:hover, .learning-article-card:hover {
+  box-shadow: 0 8px 32px var(--color-shadow-hover);
+  transform: scale(1.03);
+}
+.learning-video-card iframe {
+  width: 100%;
+  height: 180px;
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 10px;
+}
+.learning-video-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.learning-mark-btn {
+  background: linear-gradient(135deg, var(--color-accent), var(--color-btn-bg-hover));
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 7px 18px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 6px;
+  transition: background 0.2s, transform 0.18s;
+}
+.learning-mark-btn:disabled {
+  background: #b6e0fe;
+  color: #444;
+  cursor: default;
+}
+.learning-article-card a {
+  color: var(--color-link);
+  font-weight: 500;
+  text-decoration: none;
+  margin-bottom: 8px;
+  font-size: 1.08rem;
+}
+.learning-article-card a:hover {
+  text-decoration: underline;
+}
+.learning-loading {
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--color-accent);
+  margin: 40px 0;
+}
+.learning-platform-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  max-width: 1400px;
+  margin: 40px auto;
+  padding: 0 12px;
+  position: relative;
+}
+.sidebar-toggle-btn {
+  position: fixed;
+  left: 0;
+  top: 80px;
+  z-index: 100;
+  background: var(--color-accent);
+  color: #fff;
+  border: none;
+  border-radius: 0 8px 8px 0;
+  font-size: 1.5rem;
+  padding: 8px 14px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px var(--color-shadow);
+  transition: background 0.2s;
+}
+.sidebar-toggle-btn:hover {
+  background: var(--color-btn-bg-hover);
+}
+.learning-toc {
+  min-width: 240px;
+  max-width: 280px;
+  background: var(--color-card-bg);
+  border-radius: 0 18px 18px 0;
+  box-shadow: 0 2px 8px var(--color-shadow);
+  padding: 32px 18px 24px 18px;
+  position: sticky;
+  top: 32px;
+  height: 90vh;
+  overflow-y: auto;
+  transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.2s;
+  z-index: 99;
+}
+.learning-toc.closed {
+  transform: translateX(-110%);
+  box-shadow: none;
+}
+.learning-toc.open {
+  transform: translateX(0);
+}
+.learning-toc h3 {
+  margin-bottom: 18px;
+  color: var(--color-accent);
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: left;
+}
+.learning-toc ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.learning-toc li {
+  margin-bottom: 18px;
+  cursor: pointer;
+  color: var(--color-title);
+  font-size: 1.08rem;
+  border-left: 3px solid transparent;
+  padding-left: 10px;
+  transition: color 0.2s, border 0.2s, background 0.2s;
+  border-radius: 6px;
+}
+.learning-toc li.active,
+.learning-toc li:hover {
+  color: var(--color-accent);
+  border-left: 3px solid var(--color-accent);
+  background: #e0f2fe;
+  font-weight: 600;
+}
+.learning-main {
+  flex: 1 1 0;
+  min-width: 0;
+  margin-left: 0;
+  transition: margin-left 0.3s;
+}
+.toc-cert-link {
+  color: var(--color-accent);
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 18px;
+}
+.toc-cert-link:hover {
+  color: var(--color-btn-bg-hover);
+}
+@media (max-width: 1100px) {
+  .learning-platform-layout { flex-direction: column; }
+  .learning-toc { position: static; width: 100%; margin-bottom: 24px; }
+}
+@media (max-width: 900px) {
+  .learning-platform-layout { flex-direction: column; }
+  .learning-toc {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    border-radius: 0 18px 18px 0;
+    z-index: 100;
+    box-shadow: 0 4px 24px var(--color-shadow);
+  }
+  .learning-main {
+    margin-left: 0;
+  }
+  .sidebar-toggle-btn {
+    top: 20px;
+  }
+}
+@keyframes cardPopIn {
+  0% { opacity: 0; transform: translateY(40px) scale(0.95);}
+  100% { opacity: 1; transform: none;}
+}
+@keyframes fadeIn {
+  0% { opacity: 0;}
+  100% { opacity: 1;}
+}

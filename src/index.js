@@ -13,6 +13,8 @@ import Login from './views/login'
 import Blog from './views/blog'
 import NotFound from './views/not-found' // Only default import
 import ChatbotWidget from './components/ChatbotWidget';
+import Insurance from './views/Insurance';
+import LearningPlatform from './views/LearningPlatform';
 
 const App = () => {
   return (
@@ -23,6 +25,8 @@ const App = () => {
           <Route component={Login} exact path="/login" />
           <Route component={Blog} exact path="/blog" />
           <Route component={NotFound} exact path="/not-found" />
+          <Route exact path="/insurance" component={Insurance} />
+          <Route path="/learning-platform" component={LearningPlatform} />
           <Route component={NotFound} /> {/* Catch-all route */}
           <Redirect to="/not-found" />   {/* Redirect to valid path */}
         </Switch>

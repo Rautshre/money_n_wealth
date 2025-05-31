@@ -63,8 +63,8 @@ const Navbar = (props) => {
           <nav className="navbar-links1">
             <span className="thq-link thq-body-small" onClick={() => history.push('/')}>{props.home}</span>
             <span className="thq-link thq-body-small" onClick={handleTips} style={{cursor:'pointer'}}>{props.tips}</span>
-            <span className="thq-link thq-body-small">{props.chatbot}</span>
-            <span className="thq-link thq-body-small">{props.about}</span>
+            <span className="thq-link thq-body-small" onClick={() => history.push('/insurance')} style={{cursor:'pointer'}}>{props.Insurance}</span>
+            <span className="thq-link thq-body-small" onClick={() => history.push('/learning-platform')} style={{cursor:'pointer'}}>Learning Platform</span>
             <span className="thq-link thq-body-small">{props.contact}</span>
           </nav>
           <div className="navbar-buttons1">
@@ -113,8 +113,8 @@ const Navbar = (props) => {
             <nav className="navbar-links2">
               <span className="thq-link thq-body-small">{props.home}</span>
               <span className="thq-link thq-body-small">{props.tips}</span>
-              <span className="thq-link thq-body-small">{props.chatbot}</span>
-              <span className="thq-link thq-body-small">{props.about}</span>
+              <span className="thq-link thq-body-small" onClick={() => history.push('/insurance')} style={{cursor:'pointer'}}>{props.Insurance}</span>
+              <span className="thq-link thq-body-small" onClick={() => history.push('/learning-platform')} style={{cursor:'pointer'}}>Learning Platform</span>
               <span className="thq-link thq-body-small">{props.contact}</span>
             </nav>
           </div>
@@ -148,8 +148,7 @@ Navbar.defaultProps = {
   home: 'Home',
   tips: 'Blog',
   become_a_partner: 'become_a_partner',
-  chatbot: 'Chatbot',
-  about: 'About Us',
+  Insurance: 'Insurance',
   contact: 'Contact Us',
   getStarted: 'Get Started',
 }
@@ -160,8 +159,7 @@ Navbar.propTypes = {
   home: PropTypes.string,
   tips: PropTypes.string,
   become_a_partner: PropTypes.string,
-  chatbot: PropTypes.string,
-  about: PropTypes.string,
+  Insurance: PropTypes.string,
   contact: PropTypes.string,
   getStarted: PropTypes.string,
 }

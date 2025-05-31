@@ -207,7 +207,7 @@ Footer.defaultProps = {
   link8: 'Privacy Policy',
   link3: 'FAQs',
   socialLinkTitleCategory: 'Follow Us',
-  logoSrc: 'https://media.licdn.com/dms/image/v2/C510BAQGZB8WnniDNRA/company-logo_200_200/company-logo_200_200/0/1631369598441?e=2147483647&v=beta&t=dJJxLGDb33_pv6cAGRlPRAu7hDY6kJoT9bhF04XwtSM',
+  logoSrc: 'https://res.cloudinary.com/dmu276kaq/image/upload/v1748441700/money_n_wealth_mckxrd.png',
   link1: 'About Us',
   link10: 'Sitemap',
   content3: '© 2025 Money n Wealth. All rights reserved.',
