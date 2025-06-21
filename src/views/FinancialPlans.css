@@ -1,0 +1,232 @@
+.financial-plans-container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 24px;
+  background: var(--color-section-bg, #f8fafc);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  animation: fadeIn 1s;
+}
+.financial-plans-title {
+  text-align: center;
+  color: var(--color-accent, #1e88e5);
+  margin-bottom: 12px;
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+.financial-plans-intro {
+  text-align: center;
+  margin-bottom: 32px;
+  color: #444;
+  font-size: 1.1rem;
+}
+.financial-plans-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+  justify-content: center;
+}
+.financial-plan-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(30,136,229,0.07);
+  padding: 40px 32px 32px 32px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  transition: box-shadow 0.2s, transform 0.2s;
+  animation: cardPopIn 0.7s cubic-bezier(.4,2,.6,1) both;
+}
+.financial-plan-card:hover {
+  box-shadow: 0 8px 32px rgba(30,136,229,0.13);
+  transform: scale(1.03);
+}
+.financial-plan-card h2 {
+  color: var(--color-accent, #1e88e5);
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+.financial-plan-card ul {
+  margin: 12px 0 0 0;
+  padding-left: 18px;
+  color: #222;
+}
+.financial-plan-card li {
+  margin-bottom: 6px;
+  font-size: 1rem;
+}
+.financial-plans-hero {
+  background: linear-gradient(120deg, #4f8cff 0%, #6ee7b7 100%);
+  padding: 0 0 48px 0;
+  border-radius: 0 0 40px 40px;
+  box-shadow: 0 4px 24px rgba(30,136,229,0.07);
+  margin-bottom: 40px;
+}
+.financial-plans-hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 24px 0 24px;
+  gap: 32px;
+}
+.financial-plans-hero-content h1 {
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+.financial-plans-hero-content p {
+  color: #e0f2fe;
+  font-size: 1.2rem;
+  margin-bottom: 28px;
+  max-width: 480px;
+}
+.financial-plans-cta {
+  background: #fff;
+  color: #4f8cff;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 36px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(30,136,229,0.10);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.financial-plans-cta:hover {
+  background: #4f8cff;
+  color: #fff;
+}
+.financial-plans-hero-img {
+  width: 340px;
+  max-width: 45vw;
+  border-radius: 24px;
+  box-shadow: 0 4px 24px rgba(30,136,229,0.13);
+  background: #fff;
+  size: full;
+}
+.financial-plans-highlights-title {
+  text-align: center;
+  margin: 48px 0 24px 0;
+  font-size: 2rem;
+  color: #1e293b;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.financial-plan-graph {
+  flex-shrink: 0;
+  margin-right: 32px;
+}
+.circular-progress {
+  display: block;
+}
+.circular-bg {
+  stroke: #e0e7ef;
+}
+.circular-bar {
+  transition: stroke-dashoffset 0.7s;
+}
+.financial-plan-info {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.financial-plan-info h2 {
+  color: #4f8cff;
+  margin-bottom: 12px;
+  font-size: 1.7rem;
+}
+.financial-plan-info p {
+  color: #222;
+  margin-bottom: 18px;
+  font-size: 1.13rem;
+  line-height: 1.7;
+}
+.financial-plan-stats {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+.financial-plan-stat {
+  background: #f1f5f9;
+  border-radius: 8px;
+  padding: 12px 22px;
+  font-size: 1.08rem;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.stat-label {
+  font-weight: 500;
+  color: #64748b;
+  font-size: 1rem;
+}
+.stat-value {
+  font-weight: 700;
+  color: #222;
+  font-size: 1.13rem;
+}
+.financial-plan-invest-btn {
+  background: linear-gradient(90deg, #4f8cff, #6ee7b7);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 36px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 12px;
+  align-self: flex-start;
+  transition: background 0.2s, transform 0.18s;
+  box-shadow: 0 2px 8px rgba(30,136,229,0.10);
+}
+.financial-plan-invest-btn:hover {
+  background: linear-gradient(90deg, #6ee7b7, #4f8cff);
+  transform: scale(1.04);
+}
+@media (max-width: 900px) {
+  .financial-plans-list { grid-template-columns: 1fr; }
+  .financial-plans-hero-content {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 24px;
+  }
+  .financial-plans-hero-img {
+    margin: 0 auto;
+    width: 90vw;
+    max-width: 400px;
+  }
+  .financial-plans-list {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .financial-plan-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 28px 12px 22px 12px;
+  }
+  .financial-plan-graph {
+    margin-right: 0;
+    margin-bottom: 12px;
+  }
+}
+@keyframes cardPopIn {
+  0% { opacity: 0; transform: translateY(40px) scale(0.95);}
+  100% { opacity: 1; transform: none;}
+}
+@keyframes fadeIn {
+  0% { opacity: 0;}
+  100% { opacity: 1;}
+}

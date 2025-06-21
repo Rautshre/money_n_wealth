@@ -15,7 +15,8 @@ import NotFound from './views/not-found' // Only default import
 import ChatbotWidget from './components/ChatbotWidget';
 import Insurance from './views/Insurance';
 import LearningPlatform from './views/LearningPlatform';
-
+import FinancialPlans from './views/FinancialPlans';
+import BlogDetail from './views/BlogDetail' // Corrected import path and case
 const App = () => {
   return (
     <Router>
@@ -27,6 +28,8 @@ const App = () => {
           <Route component={NotFound} exact path="/not-found" />
           <Route exact path="/insurance" component={Insurance} />
           <Route path="/learning-platform" component={LearningPlatform} />
+          <Route path="/financial-plans" component={FinancialPlans} /> {/* Fixed path and prop */}
+          <Route path="/blog/:id" component={BlogDetail} /> 
           <Route component={NotFound} /> {/* Catch-all route */}
           <Redirect to="/not-found" />   {/* Redirect to valid path */}
         </Switch>

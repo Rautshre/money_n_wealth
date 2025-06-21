@@ -1,7 +1,14 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import './steps.css'
 
 const Steps = () => {
+  const history = useHistory();
+
+  const handleExploreClick = () => {
+    history.push('/financial-plans');
+  };
+
   return (
     <div className="steps-container1 thq-section-padding">
       <div className="steps-max-width thq-section-max-width">
@@ -14,7 +21,10 @@ const Steps = () => {
               We offer a comprehensive suite of financial solutions tailored to your needs, including Retirement Plans, Estate Plans, Financial Planning, Life Insurance, Mutual Funds, and Health Insurance. Secure your future and achieve your goals with expert guidance every step of the way.
             </p>
             <div className="steps-actions">
-              <button className="thq-button-filled thq-button-animated steps-button">
+              <button
+                className="thq-button-filled thq-button-animated steps-button"
+                onClick={handleExploreClick}
+              >
                 <span className="thq-body-small">Explore Solutions</span>
               </button>
             </div>

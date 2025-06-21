@@ -1,5 +1,6 @@
 .blog-bg {
   min-height: 100vh;
+  width: 100vw;
   background: linear-gradient(120deg, var(--color-primary) 80%, var(--color-accent) 100%);
   padding: 48px 0;
 }
