@@ -4,14 +4,20 @@
   "private": true,
   "dependencies": {
     "@craco/craco": "^7.1.0",
+    "ajv": "^6.12.6",
+    "ajv-keywords": "^3.5.2",
     "dangerous-html": "0.1.13",
     "firebase": "^11.8.0",
-    "prop-types": "15.7.2",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "react-helmet": "^7.6.1",
-    "react-router-dom": "^7.6.1",
+    "gsap": "^3.12.5",
+    "prop-types": "15.8.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-helmet": "^6.1.0",
+    "react-router-dom": "^6.30.1",
     "react-scripts": "5.0.1"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
   },
   "scripts": {
     "start": "set NODE_OPTIONS=--openssl-legacy-provider && craco start",
@@ -22,7 +28,7 @@
     "deploy": "gh-pages -d build"
   },
   "engines": {
-    "node": ">=18.x"
+    "node": ">=18"
   },
   "browserslist": {
     "production": [
@@ -35,9 +41,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "gh-pages": "^6.3.0",
-    "react-scripts": "^3.0.1"
   }
 }

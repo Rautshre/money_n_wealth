@@ -112,6 +112,31 @@
   opacity: 0.15;
 }
 
+.steps-cards-fan {
+  position: relative;
+  width: 400px;
+  height: 320px;
+  margin: 0 auto;
+  perspective: 1200px;
+}
+.steps-card-fan {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(30,136,229,0.09);
+  padding: 28px 22px 38px 22px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: box-shadow 0.2s;
+  cursor: pointer;
+  user-select: none;
+}
+.steps-card-fan:hover {
+  box-shadow: 0 8px 32px rgba(30,136,229,0.18);
+  z-index: 20 !important;
+}
+
 @media(max-width: 991px) {
   .steps-max-width {
     flex-direction: column;
@@ -147,5 +172,18 @@
 @media(max-width: 479px) {
   .steps-button {
     width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .steps-cards-fan {
+    width: 98vw;
+    height: 60vw;
+    min-height: 220px;
+  }
+  .steps-card-fan {
+    width: 90vw;
+    min-width: 0;
+    padding: 18px 8px 32px 8px;
   }
 }

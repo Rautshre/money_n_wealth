@@ -1,14 +1,7 @@
-import React from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
+import gsap from 'gsap'
 import './hero.css'
-
-// const demoTicker = [
-//   { symbol: 'NIFTY', price: '22,500.45', change: '+0.45%', icon: '📈' },
-//   { symbol: 'SENSEX', price: '75,200.10', change: '-0.12%', icon: '📊' },
-//   { symbol: 'GOLD', price: '₹72,300', change: '+0.18%', icon: '🥇' },
-//   { symbol: 'USD/INR', price: '83.12', change: '-0.05%', icon: '💱' },
-//   { symbol: 'BTC', price: '₹5,900,000', change: '+1.2%', icon: '₿' },
-// ]
 
 const investmentOptions = [
   { icon: '📈', label: 'Equity or Stocks' },
@@ -26,14 +19,182 @@ const investmentOptions = [
 ]
 
 const Hero = (props) => {
+  const heroRef = useRef()
+  const contentRef = useRef()
+  const actionsRef = useRef()
+  const gridRef = useRef([])
+  const fullImgRef = useRef()
+  const leftImgRef = useRef()
+  const rightImgRef = useRef()
+  const [showSplit, setShowSplit] = useState(false)
+  const [showContent, setShowContent] = useState(false)
+  const [typedHeading, setTypedHeading] = useState('')
+  const [typedPara, setTypedPara] = useState('')
+
+  // Typewriter effect for heading and paragraph
+  useEffect(() => {
+    if (showContent) {
+      let headingIdx = 0
+      let paraIdx = 0
+
+      const typeHeading = () => {
+        if (headingIdx <= props.heading1.length) {
+          setTypedHeading(props.heading1.slice(0, headingIdx))
+          headingIdx++
+          setTimeout(typeHeading, 35)
+        } else {
+          setTimeout(typePara, 250)
+        }
+      }
+
+      const typePara = () => {
+        if (paraIdx <= props.content1.length) {
+          setTypedPara(props.content1.slice(0, paraIdx))
+          paraIdx++
+          setTimeout(typePara, 18)
+        }
+      }
+
+      typeHeading()
+    }
+  }, [showContent, props.heading1, props.content1])
+
+  useEffect(() => {
+    // Step 1: Show full treasure image
+    gsap.fromTo(
+      fullImgRef.current,
+      { opacity: 0, scale: 0.8, y: 40 },
+      {
+        opacity: 1,
+        scale: 1,
+        y: 0,
+        duration: 0.7,
+        ease: 'power2.out',
+        onComplete: () => {
+          setTimeout(() => {
+            // Step 2: Hide full image, show split images
+            gsap.to(fullImgRef.current, {
+              opacity: 0,
+              duration: 0.3,
+              onComplete: () => {
+                setShowSplit(true)
+                setTimeout(() => {
+                  // Step 3: Animate split
+                  gsap.fromTo(
+                    [leftImgRef.current, rightImgRef.current],
+                    { opacity: 0, scale: 0.95, y: 20 },
+                    { opacity: 1, scale: 1, y: 0, duration: 0.4, stagger: 0.1, ease: 'power2.out' }
+                  )
+                  gsap.to(leftImgRef.current, {
+                    x: '-110%',
+                    duration: 0.8,
+                    delay: 0.3,
+                    ease: 'power3.inOut',
+                  })
+                  gsap.to(rightImgRef.current, {
+                    x: '110%',
+                    duration: 0.8,
+                    delay: 0.3,
+                    ease: 'power3.inOut',
+                    onComplete: () => {
+                      setShowContent(true)
+                      // Animate in actions and grid after text
+                      setTimeout(() => {
+                        gsap.fromTo(
+                          actionsRef.current,
+                          { y: 40, opacity: 0 },
+                          { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' }
+                        )
+                        gsap.fromTo(
+                          gridRef.current,
+                          { scale: 0.8, opacity: 0, y: 40 },
+                          {
+                            scale: 1,
+                            opacity: 1,
+                            y: 0,
+                            duration: 0.7,
+                            stagger: 0.07,
+                            delay: 0.2,
+                            ease: 'back.out(1.7)',
+                          }
+                        )
+                      }, 1200)
+                    }
+                  })
+                }, 100)
+              }
+            })
+          }, 700)
+        }
+      }
+    )
+  }, [])
+
   return (
-    <div className="hero-header78">
-      <div className="hero-column thq-section-padding thq-section-max-width">
-        <div className="hero-content1">
-          <h1 className="hero-text1 thq-heading-1">{props.heading1}</h1>
-          <p className="hero-text2 thq-body-large">{props.content1}</p>
+    <div className="hero-header78" ref={heroRef}>
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: 160, position: 'relative' }}>
+        {/* Full treasure image */}
+        <div ref={fullImgRef} style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)', zIndex: 2 }}>
+          <img
+            src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/202504/is-it-a-sign-of-good-fortune--a-warning-of-bad-luck--or-simply-a-random-event-the-answer-depends-on-152325785-16x9_0.jpg?VersionId=3RPCE6rgq4TGMYVv6Doxcbo_GC897Vpk&size=690:388"
+            alt="Treasure"
+            style={{ width: 160, maxWidth: '90vw', display: 'block' }}
+          />
         </div>
-        <div className="hero-actions">
+        {/* Split images */}
+        {showSplit && (
+          <>
+            <div ref={leftImgRef} style={{
+              position: 'absolute',
+              left: '50%',
+              transform: 'translateX(-100%)',
+              zIndex: 2,
+              width: 80,
+              overflow: 'hidden'
+            }}>
+              <img
+                src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/202504/is-it-a-sign-of-good-fortune--a-warning-of-bad-luck--or-simply-a-random-event-the-answer-depends-on-152325785-16x9_0.jpg?VersionId=3RPCE6rgq4TGMYVv6Doxcbo_GC897Vpk&size=690:388"
+                alt="Treasure Left"
+                style={{
+                  width: 160,
+                  objectFit: 'cover',
+                  objectPosition: 'left',
+                  clipPath: 'inset(0 80px 0 0)'
+                }}
+              />
+            </div>
+            <div ref={rightImgRef} style={{
+              position: 'absolute',
+              left: '50%',
+              transform: 'translateX(0%)',
+              zIndex: 2,
+              width: 80,
+              overflow: 'hidden'
+            }}>
+              <img
+                src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/202504/is-it-a-sign-of-good-fortune--a-warning-of-bad-luck--or-simply-a-random-event-the-answer-depends-on-152325785-16x9_0.jpg?VersionId=3RPCE6rgq4TGMYVv6Doxcbo_GC897Vpk&size=690:388"
+                alt="Treasure Right"
+                style={{
+                  width: 160,
+                  objectFit: 'cover',
+                  objectPosition: 'right',
+                  clipPath: 'inset(0 0 0 80px)'
+                }}
+              />
+            </div>
+          </>
+        )}
+      </div>
+      <div className="hero-column thq-section-padding thq-section-max-width">
+        <div className="hero-content1" ref={contentRef}>
+          <h1 className="hero-text1 thq-heading-1">
+            {showContent ? typedHeading : ''}
+          </h1>
+          <p className="hero-text2 thq-body-large">
+            {showContent ? typedPara : ''}
+          </p>
+        </div>
+        <div className="hero-actions" ref={actionsRef} style={{ opacity: 0 }}>
           <button className="thq-button-filled hero-button1">
             <span className="thq-body-small">{props.action1}</span>
           </button>
@@ -42,32 +203,15 @@ const Hero = (props) => {
           </button>
         </div>
       </div>
-      {/* Market Ticker as Grid of Cards */}
-      {/* <div className="hero-market-ticker-grid-section">
-        <span className="hero-ticker-label">Live Market</span>
-        <div className="hero-market-ticker-grid">
-          {demoTicker.map((item, idx) => (
-            <div className="hero-ticker-card" key={idx}>
-              <span className="hero-ticker-icon">{item.icon}</span>
-              <span className="hero-ticker-symbol">{item.symbol}</span>
-              <span className="hero-ticker-price">{item.price}</span>
-              <span
-                className={`hero-ticker-change ${
-                  item.change.startsWith('+') ? 'positive' : 'negative'
-                }`}
-              >
-                {item.change}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div> */}
-      {/* Investment Opportunities Grid */}
       <div className="hero-investment-section">
         <h2 className="hero-investment-title">A World Of Investment Opportunities</h2>
         <div className="hero-investment-grid">
           {investmentOptions.map((opt, idx) => (
-            <div className="hero-investment-card" key={idx}>
+            <div
+              className="hero-investment-card"
+              key={idx}
+              ref={(el) => (gridRef.current[idx] = el)}
+            >
               <div className="hero-investment-icon">{opt.icon}</div>
               <div className="hero-investment-label">{opt.label}</div>
               <div className="hero-investment-arrow">→</div>

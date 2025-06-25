@@ -1,42 +1,44 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import {
   BrowserRouter as Router,
+  Routes,
   Route,
-  Switch,
-  Redirect,
-} from 'react-router-dom'
+  Navigate,
+} from 'react-router-dom';
 
-import './style.css'
-import Home from './views/home'
-import Login from './views/login'
-import Blog from './views/blog'
-import NotFound from './views/not-found' // Only default import
+import './style.css';
+import Home from './views/home';
+import Login from './views/login';
+import Blog from './views/blog';
+import NotFound from './views/not-found';
 import ChatbotWidget from './components/ChatbotWidget';
 import Insurance from './views/Insurance';
 import LearningPlatform from './views/LearningPlatform';
 import FinancialPlans from './views/FinancialPlans';
-import BlogDetail from './views/BlogDetail' // Corrected import path and case
+import BlogDetail from './views/BlogDetail';
+
 const App = () => {
   return (
     <Router>
       <>
-        <Switch>
-          <Route component={Home} exact path="/" />
-          <Route component={Login} exact path="/login" />
-          <Route component={Blog} exact path="/blog" />
-          <Route component={NotFound} exact path="/not-found" />
-          <Route exact path="/insurance" component={Insurance} />
-          <Route path="/learning-platform" component={LearningPlatform} />
-          <Route path="/financial-plans" component={FinancialPlans} /> {/* Fixed path and prop */}
-          <Route path="/blog/:id" component={BlogDetail} /> 
-          <Route component={NotFound} /> {/* Catch-all route */}
-          <Redirect to="/not-found" />   {/* Redirect to valid path */}
-        </Switch>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:id" element={<BlogDetail />} />
+          <Route path="/insurance" element={<Insurance />} />
+          <Route path="/learning-platform" element={<LearningPlatform />} />
+          <Route path="/financial-plans" element={<FinancialPlans />} />
+          <Route path="/not-found" element={<NotFound />} />
+          <Route path="*" element={<Navigate to="/not-found" replace />} />
+        </Routes>
         <ChatbotWidget />
       </>
     </Router>
-  )
-}
+  );
+};
 
-ReactDOM.render(<App />, document.getElementById('app'))
+// ✅ React 18 compatible rendering
+const root = ReactDOM.createRoot(document.getElementById('app'));
+root.render(<App />);

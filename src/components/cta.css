@@ -59,7 +59,8 @@
   align-items: flex-start;
   justify-content: flex-end;
 }
- 
+
+
 @media(max-width: 767px) {
   .cta-container2 {
     gap: var(--dl-layout-space-oneandhalfunits);

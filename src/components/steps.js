@@ -1,16 +1,87 @@
-import React from 'react'
-import { useHistory } from 'react-router-dom'
+import React, { useRef, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import gsap from 'gsap'
 import './steps.css'
 
+const cardData = [
+  {
+    title: "Retirement Plans",
+    desc: "Plan for a secure and comfortable retirement with our personalized retirement solutions.",
+    label: "01"
+  },
+  {
+    title: "Estate Plans",
+    desc: "Protect your legacy and ensure your assets are distributed according to your wishes.",
+    label: "02"
+  },
+  {
+    title: "Financial Planning",
+    desc: "Achieve your financial goals with expert planning and ongoing support.",
+    label: "03"
+  },
+  {
+    title: "Life Insurance",
+    desc: "Safeguard your loved ones with comprehensive life insurance coverage.",
+    label: "04"
+  },
+  {
+    title: "Mutual Funds",
+    desc: "Grow your wealth by investing in a diverse range of mutual funds.",
+    label: "05"
+  },
+  {
+    title: "Health Insurance",
+    desc: "Protect yourself and your family with reliable health insurance plans.",
+    label: "06"
+  }
+];
+
 const Steps = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
+  const cardRefs = useRef([]);
+
+  useEffect(() => {
+    // Initial: stack all cards at center, no rotation, zIndex by order
+    gsap.set(cardRefs.current, {
+      x: 0,
+      y: 0,
+      rotate: 0,
+      zIndex: (i) => cardData.length - i,
+      scale: 1,
+      opacity: 1,
+      position: 'absolute',
+      left: '50%',
+      top: '50%',
+      transform: 'translate(-50%, -50%)'
+    });
+
+    // Animate: pop out and fan like a hand of cards
+    cardRefs.current.forEach((card, i) => {
+      const total = cardData.length;
+      const spread = 60; // total spread in degrees
+      const baseAngle = -spread / 2;
+      const angle = baseAngle + (spread / (total - 1)) * i;
+      const radius = 180; // how far cards fan out from center
+
+      gsap.to(card, {
+        delay: 0.5 + i * 0.18,
+        duration: 0.7,
+        x: radius * Math.sin((angle * Math.PI) / 180),
+        y: -Math.abs(radius * 0.4 * Math.cos((angle * Math.PI) / 180)),
+        rotate: angle,
+        scale: 1,
+        opacity: 1,
+        ease: 'back.out(1.7)'
+      });
+    });
+  }, []);
 
   const handleExploreClick = () => {
-    history.push('/financial-plans');
+    navigate('/financial-plans');
   };
 
   return (
-    <div className="steps-container1 thq-section-padding">
+    <div className="steps-container1 thq-section-padding" style={{ position: 'relative', minHeight: 500 }}>
       <div className="steps-max-width thq-section-max-width">
         <div className="steps-container2 thq-grid-2">
           <div className="steps-section-header">
@@ -29,49 +100,27 @@ const Steps = () => {
               </button>
             </div>
           </div>
-          <div className="steps-container3">
-            <div className="steps-container4 thq-card">
-              <h2 className="thq-heading-2">Retirement Plans</h2>
-              <span className="steps-text14 thq-body-small">
-                Plan for a secure and comfortable retirement with our personalized retirement solutions.
-              </span>
-              <label className="steps-text15 thq-heading-3">01</label>
-            </div>
-            <div className="steps-container5 thq-card">
-              <h2 className="thq-heading-2">Estate Plans</h2>
-              <span className="steps-text17 thq-body-small">
-                Protect your legacy and ensure your assets are distributed according to your wishes.
-              </span>
-              <label className="steps-text18 thq-heading-3">02</label>
-            </div>
-            <div className="steps-container6 thq-card">
-              <h2 className="thq-heading-2">Financial Planning</h2>
-              <span className="steps-text20 thq-body-small">
-                Achieve your financial goals with expert planning and ongoing support.
-              </span>
-              <label className="steps-text21 thq-heading-3">03</label>
-            </div>
-            <div className="steps-container7 thq-card">
-              <h2 className="thq-heading-2">Life Insurance</h2>
-              <span className="steps-text23 thq-body-small">
-                Safeguard your loved ones with comprehensive life insurance coverage.
-              </span>
-              <label className="steps-text24 thq-heading-3">04</label>
-            </div>
-            <div className="steps-container8 thq-card">
-              <h2 className="thq-heading-2">Mutual Funds</h2>
-              <span className="steps-text25 thq-body-small">
-                Grow your wealth by investing in a diverse range of mutual funds.
-              </span>
-              <label className="steps-text26 thq-heading-3">05</label>
-            </div>
-            <div className="steps-container9 thq-card">
-              <h2 className="thq-heading-2">Health Insurance</h2>
-              <span className="steps-text27 thq-body-small">
-                Protect yourself and your family with reliable health insurance plans.
-              </span>
-              <label className="steps-text28 thq-heading-3">06</label>
-            </div>
+          <div className="steps-cards-fan" style={{ position: 'relative', width: 400, height: 320, margin: '0 auto' }}>
+            {cardData.map((card, idx) => (
+              <div
+                className="steps-card-fan thq-card"
+                key={idx}
+                ref={el => (cardRefs.current[idx] = el)}
+                style={{
+                  width: 220,
+                  minHeight: 140,
+                  position: 'absolute',
+                  left: '50%',
+                  top: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  boxShadow: '0 4px 24px rgba(30,136,229,0.09)'
+                }}
+              >
+                <h2 className="thq-heading-2">{card.title}</h2>
+                <span className="thq-body-small">{card.desc}</span>
+                <label className="thq-heading-3" style={{ position: 'absolute', bottom: 12, right: 18, color: '#4f8cff', fontWeight: 700 }}>{card.label}</label>
+              </div>
+            ))}
           </div>
         </div>
       </div>

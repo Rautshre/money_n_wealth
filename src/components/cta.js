@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import './cta.css'
 
 const CTA = (props) => {
-  const history = useHistory()
+  const navigate = useNavigate()
   const handleGetStarted = () => {
-    history.push('/login')
+    navigate('/login')
   }
   return (
     <div className="thq-section-padding">

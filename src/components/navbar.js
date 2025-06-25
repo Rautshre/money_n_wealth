@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import './navbar.css'
 
 const Navbar = (props) => {
-  const history = useHistory()
+  const navigate = useNavigate();
   const [darkMode, setDarkMode] = useState(true)
 
   // Toggle mode and update CSS variables on :root
   useEffect(() => {
     const root = document.documentElement
     if (darkMode) {
-     // Light mode
+      // Light mode
       root.style.setProperty('--color-bg', '#fff')
       root.style.setProperty('--color-title', '#1f2937')
       root.style.setProperty('--color-title-light', '#1f2937')
@@ -23,8 +23,7 @@ const Navbar = (props) => {
       root.style.setProperty('--color-btn-bg', '#ff8800')
       root.style.setProperty('--color-btn-bg-hover', '#ff9900')
     } else {
-      
-            // Dark mode (current)
+      // Dark mode (current)
       root.style.setProperty('--color-bg', '#111827')
       root.style.setProperty('--color-title', '#fff')
       root.style.setProperty('--color-title-light', '#fff')
@@ -39,13 +38,13 @@ const Navbar = (props) => {
   }, [darkMode])
 
   const handleGetStarted = () => {
-    history.push('/login')
+    navigate('/login')
   }
   const handleTips = () => {
-    history.push('/blog')
+    navigate('/blog')
   }
   const handleBecomePartner = () => {
-    history.push('/become-a-partner')
+    navigate('/become-a-partner')
   }
   const handleToggleMode = () => {
     setDarkMode((prev) => !prev)
@@ -61,10 +60,10 @@ const Navbar = (props) => {
         />
         <div data-thq="thq-navbar-nav" className="navbar-desktop-menu">
           <nav className="navbar-links1">
-            <span className="thq-link thq-body-small" onClick={() => history.push('/')}>{props.home}</span>
+            <span className="thq-link thq-body-small" onClick={() => navigate('/')}>{props.home}</span>
             <span className="thq-link thq-body-small" onClick={handleTips} style={{cursor:'pointer'}}>{props.tips}</span>
-            <span className="thq-link thq-body-small" onClick={() => history.push('/insurance')} style={{cursor:'pointer'}}>{props.Insurance}</span>
-            <span className="thq-link thq-body-small" onClick={() => history.push('/learning-platform')} style={{cursor:'pointer'}}>Learning Platform</span>
+            <span className="thq-link thq-body-small" onClick={() => navigate('/insurance')} style={{cursor:'pointer'}}>{props.Insurance}</span>
+            <span className="thq-link thq-body-small" onClick={() => navigate('/learning-platform')} style={{cursor:'pointer'}}>Learning Platform</span>
             <span className="thq-link thq-body-small">{props.contact}</span>
           </nav>
           <div className="navbar-buttons1">
@@ -111,10 +110,10 @@ const Navbar = (props) => {
               </div>
             </div>
             <nav className="navbar-links2">
-              <span className="thq-link thq-body-small">{props.home}</span>
-              <span className="thq-link thq-body-small">{props.tips}</span>
-              <span className="thq-link thq-body-small" onClick={() => history.push('/insurance')} style={{cursor:'pointer'}}>{props.Insurance}</span>
-              <span className="thq-link thq-body-small" onClick={() => history.push('/learning-platform')} style={{cursor:'pointer'}}>Learning Platform</span>
+              <span className="thq-link thq-body-small" onClick={() => navigate('/')}>{props.home}</span>
+              <span className="thq-link thq-body-small" onClick={handleTips}>{props.tips}</span>
+              <span className="thq-link thq-body-small" onClick={() => navigate('/insurance')} style={{cursor:'pointer'}}>{props.Insurance}</span>
+              <span className="thq-link thq-body-small" onClick={() => navigate('/learning-platform')} style={{cursor:'pointer'}}>Learning Platform</span>
               <span className="thq-link thq-body-small">{props.contact}</span>
             </nav>
           </div>
